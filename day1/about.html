@@ -7,15 +7,11 @@
 </head>
 <body>
     <header>
-        <nav>
-           <a href="index.html">Home</a> 
-        </nav>
-
         <h1>QuickNotes</h1>
         <p>Capture ideas before they disapear.</p>
         <nav>
            <a href="index.html">Home</a> 
-           <a href="contacts.html">Contacts</a>
+           <a href="about.html">About</a>
         </nav>
     </header>
     <main>
@@ -34,6 +30,15 @@
                 <li>Click the "Add note" button</li>
                 <li>The note will be added to the list of notes</li>
             </ol>
+        </section>
+
+        <section>
+            <h3>Features</h3>
+            <ul>
+                <li>A simple, clean interface</li>
+                <li>Quick note taking</li>
+                <li>Easy-to-use keyboard shortcuts</li>
+            </ul>
         </section>
 
         <section>
@@ -58,11 +63,11 @@
             <h2>Send feedback</h2>
             <form id="feedback-form">
                 <label for="name-input">Your name</label>
-                <input type="text" id="name-input" placeholder="Type your name..."/>
+                <input type="text" id="name-input" placeholder="Type your name..." required/>
                 <label for="email-input">Your email</label>
-                <input type="email" id="email-input" placeholder="Type your email..."/>
+                <input type="email" id="email-input" placeholder="Type your email..." required/>
                 <label for="feedback-input"> Your feedback</label>
-                <textarea  rows="10" cols="20" placeholder="Type your feedback here..."></textarea>
+                <textarea  rows="10" cols="20" placeholder="Type your feedback here..." required></textarea>
                 <button type="submit">Send Feedback</button>
             </form>
         </section>
