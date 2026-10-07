@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 - Fetch &amp; Filter Users</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="users.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>User Directory</h1>
+      <p class="tagline">Fetch, render and filter users from a REST API.</p>
+    </header>
+
+    <main>
+      <section class="controls">
+        <button id="load-users" type="button">Load users</button>
+
+        <div class="filter-group">
+          <label for="filter-input">Filter by name</label>
+          <input
+            id="filter-input"
+            type="text"
+            placeholder="Type a name..."
+            autocomplete="off"
+          />
+        </div>
+
+        <p id="status">Click "Load users" to fetch the list.</p>
+      </section>
+
+      <section>
+        <ul id="users-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Day 5 Assignment</p>
+    </footer>
+  </body>
+</html>
