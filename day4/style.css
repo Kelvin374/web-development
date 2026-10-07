@@ -1,0 +1,443 @@
+/* 1. CSS Variables - Theme Definitions */
+:root {
+  --bg-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --textarea-bg: #f8fafc;
+  --textarea-border: #cbd5e1;
+  --textarea-focus: #0ba184;
+  --header-bg: #8e0000;
+  --header-text: #ffffff;
+  --header-tagline: #ffcdd2;
+  --btn-primary-bg: #0ba184;
+  --btn-primary-hover: #088a70;
+  --btn-primary-text: #ffffff;
+  --btn-theme-bg: rgba(255, 255, 255, 0.15);
+  --btn-theme-hover: rgba(255, 255, 255, 0.25);
+  --btn-theme-text: #ffffff;
+  --btn-theme-border: rgba(255, 255, 255, 0.3);
+  --btn-clear-bg: #fee2e2;
+  --btn-clear-hover: #fecaca;
+  --btn-clear-text: #b91c1c;
+  --badge-bg: rgba(255, 255, 255, 0.2);
+  --badge-text: #ffffff;
+  --kbd-bg: #e2e8f0;
+  --kbd-text: #475569;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --warning-color: orange;
+  --over-color: red;
+}
+
+body.dark {
+  --bg-color: #0b0f17;
+  --card-bg: #151d2a;
+  --card-border: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --textarea-bg: #0d131f;
+  --textarea-border: #334155;
+  --textarea-focus: #10b981;
+  --header-bg: #111827;
+  --header-text: #f8fafc;
+  --header-tagline: #9ca3af;
+  --btn-primary-bg: #10b981;
+  --btn-primary-hover: #059669;
+  --btn-primary-text: #ffffff;
+  --btn-theme-bg: #1e293b;
+  --btn-theme-hover: #334155;
+  --btn-theme-text: #e2e8f0;
+  --btn-theme-border: #374151;
+  --btn-clear-bg: rgba(239, 68, 68, 0.15);
+  --btn-clear-hover: rgba(239, 68, 68, 0.25);
+  --btn-clear-text: #f87171;
+  --badge-bg: #1e293b;
+  --badge-text: #10b981;
+  --kbd-bg: #1e293b;
+  --kbd-text: #94a3b8;
+  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --warning-color: orange;
+  --over-color: red;
+}
+
+/* 2. Global Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* 3. Header */
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 24px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.header-content {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  letter-spacing: 0.05em;
+}
+
+.tagline {
+  max-width: 680px;
+  margin: 8px auto 0;
+  color: var(--header-tagline);
+  font-size: 0.95rem;
+}
+
+/* 4. Theme Button */
+#theme-toggle {
+  background-color: var(--btn-theme-bg);
+  color: var(--btn-theme-text);
+  border: 1px solid var(--btn-theme-border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--btn-theme-hover);
+  transform: translateY(-1px);
+}
+
+#theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* 5. Main Editor Area */
+main {
+  flex: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.editor-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.editor-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.shortcut-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+kbd {
+  background-color: var(--kbd-bg);
+  color: var(--kbd-text);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+/* 6. Textarea */
+#note-text {
+  width: 100%;
+  min-height: 180px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--textarea-border);
+  background-color: var(--textarea-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+#note-text:focus {
+  border-color: var(--textarea-focus);
+  box-shadow: 0 0 0 3px rgba(11, 161, 132, 0.2);
+}
+
+body.dark #note-text:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+/* 7. Meta / Status Bar */
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+}
+
+.counters {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#char-count,
+#word-count {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+/* 8. Specific Counter State Classes */
+.warning {
+  color: orange;
+}
+
+.over {
+  color: red;
+  font-weight: bold;
+}
+
+/* 9. Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#add-btn,
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#add-btn:hover,
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+#add-btn:active,
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+#clear-btn,
+.btn-clear {
+  background-color: var(--btn-clear-bg);
+  color: var(--btn-clear-text);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#clear-btn:hover,
+.btn-clear:hover {
+  background-color: var(--btn-clear-hover);
+  transform: translateY(-1px);
+}
+
+#clear-btn:active,
+.btn-clear:active {
+  transform: translateY(0);
+}
+
+/* 10. Notes List Section */
+.notes-section {
+  margin-top: 24px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.notes-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.notes-count-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-item {
+  background-color: var(--textarea-bg);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.note-item:hover {
+  transform: translateX(2px);
+}
+
+.note-item-text {
+  flex: 1;
+  word-break: break-word;
+  white-space: pre-wrap;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: var(--btn-clear-bg);
+  color: var(--btn-clear-text);
+  border-color: var(--btn-clear-text);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 20px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* 10. Footer */
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* 11. Responsive Layout */
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #theme-toggle {
+    align-self: flex-start;
+  }
+
+  .meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #clear-btn {
+    width: 100%;
+  }
+}

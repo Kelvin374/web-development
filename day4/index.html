@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickNotes</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="brand">
+          <h1>QuickNotes</h1>
+        </div>
+        <button id="theme-toggle" type="button">Dark mode</button>
+      </div>
+      <p class="tagline">
+        Capture thoughts with real-time word & character tracking.
+      </p>
+    </header>
+
+    <main>
+      <section class="editor-card">
+        <div class="editor-header">
+          <label for="note-text" class="editor-label">Your Note</label>
+          <span class="shortcut-hint"
+            ><kbd>Esc</kbd> to clear &bull; <kbd>Ctrl+Enter</kbd> to add</span
+          >
+        </div>
+
+        <textarea
+          id="note-text"
+          rows="8"
+          placeholder="Start typing your note here... (autosaved locally)"
+        ></textarea>
+
+        <div class="meta-row">
+          <div class="counters">
+            <p id="char-count">0 / 200 characters</p>
+            <p id="word-count">0 words</p>
+          </div>
+          <div class="action-buttons">
+            <button id="add-btn" type="button" class="btn-primary">
+              Add Note
+            </button>
+            <button id="clear-btn" type="button" class="btn-clear">
+              Clear
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="notes-section">
+        <div class="notes-header">
+          <h2>Your Notes</h2>
+          <span id="saved-notes-count" class="notes-count-badge">0 notes</span>
+        </div>
+        <ul id="notes-list" class="notes-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 QuickNotes. Built during Web Foundations</p>
+    </footer>
+  </body>
+</html>
